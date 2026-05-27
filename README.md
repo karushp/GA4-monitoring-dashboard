@@ -35,6 +35,12 @@ Streamlit dashboard for monitoring GA4 traffic.
 uv sync
 ```
 
+For pip/Render (or any `requirements.txt` workflow), dependencies are pinned in `requirements.txt`. Regenerate after changing `pyproject.toml`:
+
+```bash
+uv export --no-dev --no-emit-project --no-hashes --no-annotate -o requirements.txt
+```
+
 Copy `.env.example` to `.env` and set your dashboard credentials:
 
 ```bash
