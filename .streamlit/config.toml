@@ -1,0 +1,12 @@
+# Theme values mirror .streamlit/color.json (Crimson Gradient Dashboard)
+# UI colors: colors.* | Chart colors: chart.*
+
+[theme]
+base = "light"
+primaryColor = "#e20626"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#FFF5F6"
+textColor = "#1A1A1A"
+
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,27 @@
+{
+  "themeName": "Crimson Gradient Dashboard",
+  "colors": {
+    "primaryBright": "#e20626",
+    "primaryMedium": "#bf041d",
+    "primaryDark": "#800010",
+    "primaryDeep": "#4d000a",
+    "background": "#ffffff",
+    "text": "#1A1A1A",
+    "secondaryBackground": "#FFF5F6",
+    "border": "#F3D1D6"
+  },
+  "chart": {
+    "grid": "#e0e0e0",
+    "bounceRate": "#c4c4c4",
+    "palette": [
+      "#f9c06d",
+      "#fad6a5",
+      "#97c147",
+      "#bed986",
+      "#e8707a",
+      "#f297a5",
+      "#4db1c6",
+      "#9ad1d4"
+    ]
+  }
+}
