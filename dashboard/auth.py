@@ -48,30 +48,33 @@ def is_authenticated() -> bool:
 
 def render_login_page() -> None:
     st.title(PAGE_TITLE)
-    st.subheader("Sign in")
 
-    if not credentials_configured():
-        st.error(
-            "Login is not configured. Add `username` and `password` to a `.env` file "
-            "in the project root (see `.env.example`)."
-        )
-        return
+    _, center, _ = st.columns([1, 1.4, 1], gap="large")
+    with center:
+        st.subheader("Sign in")
 
-    with st.form("login", clear_on_submit=False):
-        username = st.text_input("Username", autocomplete="username")
-        password = st.text_input(
-            "Password", type="password", autocomplete="current-password"
-        )
-        submitted = st.form_submit_button(
-            "Sign in", type="primary", use_container_width=True
-        )
+        if not credentials_configured():
+            st.error(
+                "Login is not configured. Add `username` and `password` to a `.env` file "
+                "in the project root (see `.env.example`)."
+            )
+            return
 
-    if submitted:
-        if verify_credentials(username, password):
-            st.session_state[_SESSION_AUTHENTICATED] = True
-            st.rerun()
-        else:
-            st.error("Invalid username or password.")
+        with st.form("login", clear_on_submit=False):
+            username = st.text_input("Username", autocomplete="username")
+            password = st.text_input(
+                "Password", type="password", autocomplete="current-password"
+            )
+            submitted = st.form_submit_button(
+                "Sign in", type="primary", use_container_width=True
+            )
+
+        if submitted:
+            if verify_credentials(username, password):
+                st.session_state[_SESSION_AUTHENTICATED] = True
+                st.rerun()
+            else:
+                st.error("Invalid username or password.")
 
 
 def render_logout_button() -> None:

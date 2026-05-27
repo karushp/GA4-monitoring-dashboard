@@ -38,11 +38,11 @@ def main() -> None:
         return
 
     with st.sidebar:
-        render_logout_button()
         render_sidebar_logo()
         df = get_data()
         if df.empty:
             st.warning("No rows loaded from data files.")
+            render_logout_button()
             return
 
         brands, regions, countries = render_sidebar_common_filters(df)
@@ -50,6 +50,7 @@ def main() -> None:
         alert_threshold = render_sidebar_alert_threshold()
         time_series_range = render_sidebar_time_series_dates(df)
         selected_metrics = render_sidebar_metrics()
+        render_logout_button()
 
     latest_data_date = df["dat_load"].max().date()
     render_data_freshness_banner(latest_data_date)
