@@ -35,6 +35,19 @@ Streamlit dashboard for monitoring GA4 traffic.
 uv sync
 ```
 
+Copy `.env.example` to `.env` and set your dashboard credentials:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Description |
+|----------|-------------|
+| `username` | Sign-in username (also accepts `DASHBOARD_USERNAME`) |
+| `password` | Sign-in password (also accepts `DASHBOARD_PASSWORD`) |
+
+`.env` is gitignored. Do not commit real credentials.
+
 ## Run
 
 ```bash
@@ -46,6 +59,7 @@ uv run streamlit run app.py
 ```
 app.py                 # Streamlit entry point (page config + tab wiring)
 dashboard/             # Application code (no src/ folder)
+  auth.py              # Env-based login gate
   settings.py          # Paths and constants
   data.py              # CSV loading, filters, date helpers
   metrics.py           # Metric definitions, KPIs, alert tables
