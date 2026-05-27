@@ -78,6 +78,8 @@ def render_login_page() -> None:
 
 
 def render_logout_button() -> None:
+    st.divider()
+    st.subheader("Account")
     if st.button("Sign out", use_container_width=True):
         st.session_state.pop(_SESSION_AUTHENTICATED, None)
         st.rerun()

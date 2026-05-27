@@ -279,7 +279,9 @@ def install_sidebar_tab_sync() -> None:
 
                     sidebar.querySelectorAll("h3").forEach((heading) => {
                         const title = heading.textContent.trim();
-                        if (title === "Overview" || title === "Alerts") {
+                        if (title === "Account") {
+                            setSectionVisibility(heading, true);
+                        } else if (title === "Overview" || title === "Alerts") {
                             setSectionVisibility(heading, overviewActive);
                         } else if (title === "Time series" || title === "Metrics") {
                             setSectionVisibility(heading, timeSeriesActive);
