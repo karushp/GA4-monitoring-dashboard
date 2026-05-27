@@ -1,5 +1,6 @@
 import streamlit as st
 
+from dashboard.auth import ensure_authenticated, render_logout_button
 from dashboard.data import apply_filters, get_data, list_data_files
 from dashboard.overview import render_data_freshness_banner, render_overview_tab
 from dashboard.settings import DATA_DIR, PAGE_ICON, PAGE_TITLE
@@ -37,6 +38,7 @@ def main() -> None:
         return
 
     with st.sidebar:
+        render_logout_button()
         render_sidebar_logo()
         df = get_data()
         if df.empty:
@@ -72,4 +74,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    if ensure_authenticated():
+        main()
